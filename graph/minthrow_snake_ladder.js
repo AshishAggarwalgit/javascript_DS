@@ -24,14 +24,14 @@ function bfs(m,src) {
 
     queue.push({v:src,minDist:0})
 
-console.log(queue);
+// console.log(queue);
 
     while(queue.length){
 
-      let node = queue.pop();
+      let node = queue.shift();
 
-      console.log(node.v,m.get(node.v));
-      if(node.v == 99){
+      console.log(node.v,node.minDist,m.get(node.v));
+      if(node.v == 100){
         console.log("min dist = ",node.minDist);break;
       }
 
