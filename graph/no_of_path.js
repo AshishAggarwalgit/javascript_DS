@@ -1,6 +1,13 @@
 /** Solution 1
- * 1
- */
+ * 1 use BFS
+ * 2 take 3 things into the function arguments. (source,destination,depth).
+ * 3 store object of 2 property into the queue, vertex and depth. 
+ * 4 take count variable to check no of path.iniialize it with 0.
+ * 5 increment depth by 1 from their parent of adjacent vertex.
+ * 6 increment count if s == d && d == 3.
+ * 7 if depth greater than 3 then break;
+ * 8 return count.
+ */ 
 
 function addEdge(map, u, v) {
   if (map.get(u)) {

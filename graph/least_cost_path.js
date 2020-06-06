@@ -15,4 +15,11 @@ function addEdge(map, u, v) {
 }
 
 
-addEdge()
+let arr = new Array(5);
+
+arr.forEach((elem,index)=>{
+  elem = new Array(5);
+})
+
+
+console.log(arr);
