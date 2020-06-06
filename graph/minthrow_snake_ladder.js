@@ -1,3 +1,4 @@
+//snake and ladder game.
 function addEdge(map, u, v) {
   if (map.get(u)) {
     map.get(u).push(v);
