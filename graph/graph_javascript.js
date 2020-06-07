@@ -49,31 +49,72 @@ Graph.prototype.detectCyle = function () {
 };
 
 Graph.prototype.detectCyleUtil = function (vertex, visited, recStack) {
-  console.log("before if = ",vertex,visited)
-    if (!visited[vertex]) {
+  console.log("before if = ", vertex, visited);
+  if (!visited[vertex]) {
     visited[vertex] = true;
     recStack[vertex] = true;
 
     let adj = this.adjList[vertex];
 
     for (let i = 0; i < adj.length; i++) {
-        // console.log('parent = ',vertex,'child = ',adj[i],'recStack = ',recStack);
+      // console.log('parent = ',vertex,'child = ',adj[i],'recStack = ',recStack);
       if (!visited[adj[i]] && this.detectCyleUtil(adj[i], visited, recStack)) {
         return true;
       } else if (recStack[vertex]) {
         return true;
       }
     }
-        
   }
   recStack[vertex] = false;
-    return false;
- 
+  return false;
 };
 
-Graph.prototype.topologicalSorting = function(){
-  
-}
+Graph.prototype.topologicalSortingUtil = function (
+  node,
+  visited,
+  time,
+  departure
+) {
+  let adj = this.adjList[node];
+  visited[node] = true;
+
+  for (let i = 0; i < adj.length; i++) {
+    if (!visited[adj[i]]) {
+      this.topologicalSortingUtil(adj[i], visited, time, departure);
+    }
+  }
+  departure[node] = ++time.time;
+};
+
+Graph.prototype.topologicalSorting = function () {
+  const nodes = Object.keys(this.adjList);
+  let visited = {};
+  let time = { time: 0 };
+  let departure = {};
+  for (let i = 0; i < nodes.length; i++) {
+    if (!visited[nodes[i]]) {
+      let node = nodes[i];
+      this.topologicalSortingUtil(node, visited, time, departure);
+    }
+  }
+
+  // console.log(departure)
+
+  let nodes2 = Object.keys(departure);
+
+  for (let i = 0; i < nodes2.length - 1; i++) {
+    let max = departure[nodes2[i]];
+    for (let j = i; j < nodes2.length; j++) {
+      if (max < departure[nodes2[j]]) {
+        let temp = nodes2[i];
+        nodes2[i] = nodes2[j];
+        nodes2[j] = temp;
+      }
+    }
+  }
+
+  console.log(nodes2);
+};
 
 const graph = new Graph();
 
@@ -94,4 +135,5 @@ graph.addEdge("D", "B");
 // console.log(graph.adjList)
 
 // graph.dfs();
-graph.detectCyle();
+// graph.detectCyle();
+graph.topologicalSorting();
