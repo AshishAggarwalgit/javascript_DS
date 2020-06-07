@@ -71,6 +71,10 @@ Graph.prototype.detectCyleUtil = function (vertex, visited, recStack) {
  
 };
 
+Graph.prototype.topologicalSorting = function(){
+  
+}
+
 const graph = new Graph();
 
 graph.addVertex("A");
