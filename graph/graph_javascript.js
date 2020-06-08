@@ -116,6 +116,10 @@ Graph.prototype.topologicalSorting = function () {
   console.log(nodes2);
 };
 
+Graph.prototype.shortestPath = function () {
+
+}
+
 const graph = new Graph();
 
 graph.addVertex("A");

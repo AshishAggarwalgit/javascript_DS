@@ -54,7 +54,7 @@ Graph.prototype.findAllTopologicalOrder = function (discovered,path) {
 
             this.findAllTopologicalOrder(discovered,path);
 
-            console.log("current node  = ",nodes[i],adj);
+            // console.log("current node  = ",nodes[i],adj);
 
             adj.forEach(a=>{
                 this.indegree[a]++;
@@ -112,7 +112,7 @@ graph.addEdge("A", "D");
 graph.addEdge("A", "C");
 graph.addEdge("E", "B");
 graph.addEdge("D", "B");
-graph.setIndegree();
+graph.setIndegree();    
 
 console.log(graph)
 let discovered = {};

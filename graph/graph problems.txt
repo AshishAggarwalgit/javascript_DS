@@ -1,0 +1,24 @@
+shortest path
+least cost path
+highest cost path
+no of path
+topological order
+min spanning tree
+bipartite graph
+m coloring problem
+detect cycle
+strongly connected graph/components
+dijkastra algo
+kruskal algo
+kahn's algo
+prims algo
+disjoint set
+union and find algo
+knight problem
+cut vertex
+cut edge
+transitive closure
+arrival and departure time
+snake and ladder game
+check directed or undirected graph
+
